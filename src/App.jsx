@@ -1,25 +1,21 @@
 import "./App.css";
-import ProfileCard from "./ProfileCard";
-
+import Navbar from "./Navbar";
+import Home from "./Home";
+import Skills from "./Skills";
+import Projects from "./Projects";
+import Contact from "./Contact";
 function App(){
-  const users = [
-    { id: 1, name: "Tanmay", job: "Frontend Dev", isVerified: true }, // Verified
-    { id: 2, name: "Amit", job: "Backend Dev", isVerified: false },
-    { id: 3, name: "Sarah", job: "UI Designer", isVerified: true },   // Verified
-    { id: 4, name: "Rohan", job: "Project Manager", isVerified: false }
-  ];
   return(
-    <div className="container">
-      <h1>My Team Directory</h1>
-      <div className="card-grid">
-        {users.map((user)=>(
-          <ProfileCard 
-            key={user.id}      // React needs a unique ID for tracking
-            name={user.name} 
-            jobTitle={user.job} 
-            isVerified={user.isVerified}
-          />
-        ))}
+    <div className="app-container">
+     <Navbar />
+      <Home />
+      <Skills />
+      <Projects />
+      <Contact />
+      
+      {/* Placeholders for later */}
+      <div style={{height: '500px', background: '#222', textAlign: 'center', padding: '50px'}}>
+        <h2>Contact Form coming soon...</h2>
       </div>
     </div>
   );
