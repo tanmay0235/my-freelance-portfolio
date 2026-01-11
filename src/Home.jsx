@@ -5,10 +5,10 @@ const Hero =() =>{
     return(
         <section id="hero" className="hero-section">
             <div className="text-content">
-                <h1>Hi, I'm <span className="highlight">Tanmay Singh</span></h1>
-                <h2>Frontend Developer based in India</h2>
-                <p>I build fast, responsive, and modern websites using React. Let's make you Ideas Alive</p>
-            <div className="buttons">
+                <h1 className="hero-title animate-text">Hi, I'm <span className="highlight">Tanmay Singh</span></h1>
+                <h2 className="hero-subtitle animate-text delay-200">Frontend Developer based in India</h2>
+                <p className="hero-description animate-text delay-400">I build fast, responsive, and modern websites using React. Let's make you Ideas Alive</p>
+            <div className="hero-buttons animate-text delay-400">
                 <a href="#projects" className="primary-btn">View My Work</a>
                 <a href="#contact" className="secondary-btn">Contact Me</a>
 
