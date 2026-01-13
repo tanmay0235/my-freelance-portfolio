@@ -3,7 +3,7 @@ import profilePic from "./assets/profile.jpeg";
 
 const Hero =() =>{
     return(
-        <section id="hero" className="hero-section">
+        <section id="home" className="hero-section">
             <div className="text-content">
                 <h1 className="hero-title animate-text">Hi, I'm <span className="highlight">Tanmay Singh</span></h1>
                 <h2 className="hero-subtitle animate-text delay-200">Frontend Developer based in India</h2>

@@ -4,6 +4,7 @@ import Home from "./Home";
 import Skills from "./Skills";
 import Projects from "./Projects";
 import Contact from "./Contact";
+import Footer from "./Footer";
 function App(){
   return(
     <div className="app-container">
@@ -12,6 +13,8 @@ function App(){
       <Skills />
       <Projects />
       <Contact />
+      <Footer />
+
       
       {/* Placeholders for later */}
       <div style={{height: '500px', background: '#222', textAlign: 'center', padding: '50px'}}>

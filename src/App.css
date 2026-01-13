@@ -1,5 +1,8 @@
 /* RESET & BASICS */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0;}
+html {
+  scroll-behavior: smooth;
+}
 body { background-color: #111; color: #fff; font-family: sans-serif; }
 a { text-decoration: none; color: inherit; }
 
@@ -385,4 +388,38 @@ body.light-mode {
 .light-mode .contact-desc,
 .light-mode label {
   color: #444 !important;
+}
+/* --- FOOTER --- */
+.footer {
+  background-color: #000;
+  color: #888;
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 1px solid #333;
+}
+
+.footer p {
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.social-links a {
+  margin: 0 15px;
+  color: #ccc;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #00bcd4; /* Your accent color */
+}
+
+/* Light Mode support for Footer */
+.light-mode .footer {
+  background-color: #e0e0e0 !important;
+  color: #444 !important;
+  border-top: 1px solid #ccc !important;
+}
+.light-mode .social-links a {
+  color: #333 !important;
 }
