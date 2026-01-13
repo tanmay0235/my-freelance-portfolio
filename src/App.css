@@ -6,7 +6,8 @@ a { text-decoration: none; color: inherit; }
 /* NAVBAR */
 .navbar {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 20px 50px; background: #1a1a1a; position: fixed; width: 100%; top: 0;
+  padding: 20px 50px; background: #1a1a1a; position: fixed; width: 100%; top: 0;left: 0;z-index:1000;
+  border-bottom: 1px solid #333;
 }
 .logo { font-size: 1.5rem; font-weight: bold; }
 .dot { color: #ff9800; } /* Cyan accent color */
@@ -264,4 +265,124 @@ h2 { font-size: 2rem; color: #aaa; margin-bottom: 20px; }
 
 .delay-400 {
   animation-delay: 0.4s; /* Wait 0.4 seconds */
+}
+/* --- THEME TOGGLE BUTTON --- */
+.theme-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 20px;
+  transition: transform 0.3s;
+}
+.theme-btn:hover {
+  transform: scale(1.2);
+}
+
+/* --- LIGHT MODE OVERRIDES --- */
+.light-mode {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Fix the Cards */
+.light-mode .navbar,
+.light-mode .skill-card,
+.light-mode .project-card,
+.light-mode .contact-form {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Fix the Section Titles (Headings) */
+.light-mode .section-title,
+.light-mode h1, 
+.light-mode h2,
+.light-mode h3 {
+  color: #222 !important; /* Force them to be dark */
+}
+
+/* Fix the Form Inputs & Labels */
+.light-mode label {
+  color: #333; /* Dark text for labels */
+  font-weight: bold;
+}
+
+.light-mode input,
+.light-mode textarea {
+  background-color: #f9f9f9; /* Light grey background */
+  color: #000;               /* Black text inside boxes */
+  border: 1px solid #ccc;
+}
+
+/* Fix Description Text */
+.light-mode .contact-desc,
+.light-mode p {
+  color: #555;
+}
+
+.light-mode input,
+.light-mode textarea {
+  background-color: #f9f9f9; /* Light grey background */
+  color: #000;               /* Black text inside boxes */
+  border: 1px solid #ccc;
+}
+
+/* Fix Description Text */
+.light-mode .contact-desc,
+.light-mode p {
+  color: #ebe6e6;
+}
+/* ========================================= */
+/* 👇 PASTE THIS AT THE VERY BOTTOM 👇  */
+/* ========================================= */
+
+/* 1. Force the Main Background (Body) */
+body.light-mode {
+  background-color: #ffffff !important;
+  color: #111111 !important;
+}
+
+/* 2. Force the SECTIONS (The big containers) to be Light Grey */
+.light-mode .skills-section,
+.light-mode .projects-section,
+.light-mode .contact-section {
+  background-color: #f4f4f4 !important; /* Light Grey */
+  color: #111 !important;
+}
+
+/* 3. Force the CARDS to be Pure White with Dark Text */
+.light-mode .skill-card,
+.light-mode .project-card,
+.light-mode .contact-form,
+.light-mode .navbar {
+  background-color: #ffffff !important; /* Pure White */
+  color: #111 !important;               /* Pitch Black Text */
+  border-color: #ddd !important;        /* Light Grey Border */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important; /* Soft Shadow */
+}
+
+/* 4. Fix the Headings and Titles */
+.light-mode h1,
+.light-mode h2,
+.light-mode h3,
+.light-mode .section-title {
+  color: #000 !important;
+}
+
+/* 5. Fix the Form Inputs */
+.light-mode input,
+.light-mode textarea {
+  background-color: #eee !important;
+  color: #000 !important;
+  border: 1px solid #ccc !important;
+}
+
+/* 6. Fix the Description Text */
+.light-mode p,
+.light-mode .contact-desc,
+.light-mode label {
+  color: #444 !important;
 }
