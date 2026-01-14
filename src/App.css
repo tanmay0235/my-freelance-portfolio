@@ -20,7 +20,7 @@ a { text-decoration: none; color: inherit; }
 /* HERO SECTION */
 .hero-section {
   display: flex; align-items: center; justify-content: space-between;
-  height: 100vh; padding: 0 10%; margin-top: 60px; /* Space for fixed nav */
+  height: 100vh; padding: 0 10%; margin-top: 60px;padding-top: 100px; /* Space for fixed nav */
 }
 .text-content { max-width: 50%; }
 h1 { font-size: 4rem; margin-bottom: 10px; }
@@ -338,9 +338,7 @@ h2 { font-size: 2rem; color: #aaa; margin-bottom: 20px; }
 .light-mode p {
   color: #ebe6e6;
 }
-/* ========================================= */
-/* 👇 PASTE THIS AT THE VERY BOTTOM 👇  */
-/* ========================================= */
+
 
 /* 1. Force the Main Background (Body) */
 body.light-mode {
@@ -422,4 +420,68 @@ body.light-mode {
 }
 .light-mode .social-links a {
   color: #333 !important;
+}
+/* --- MOBILE NAVIGATION --- */
+
+/* 1. Default: Hide the Hamburger on Desktop */
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* 2. MEDIA QUERY: Rules that ONLY apply to screens smaller than 768px (Tablets/Phones) */
+/* --- MOBILE NAVIGATION (FIXED) --- */
+@media (max-width: 768px) {
+  
+  /* 1. Show the Hamburger */
+  .menu-icon {
+    display: block; 
+  }
+
+  /* 2. Hide the links completely by default */
+  .links {
+    display: none; /* Force it to disappear */
+    
+    /* Layout when it DOES appear */
+    position: absolute;
+    top: 60px; /* Push it exactly below the navbar */
+    left: 0;
+    width: 100%;
+    background-color: #1a1a1a;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    border-bottom: 2px solid #00bcd4;
+    z-index: 9999;
+  }
+
+  /* 3. The "Open" State */
+  /* This rule is VERY specific: "If .links has the class .active, perform this" */
+  .links.active {
+    display: flex !important; /* Force it to reappear */
+  }
+
+  .links a {
+    color: #ffffff !important; /* Changed from RED to WHITE */
+  font-size: 1.5rem;
+  margin: 15px 0;
+  display: block;
+  }
+}
+
+  /* Adjust theme button position in mobile menu */
+  .theme-btn {
+    margin: 15px 0;
+    margin-left: 0;
+  }
+
+
+/* Light Mode Fix for Mobile Menu */
+.light-mode .menu-icon {
+  color: #333 !important;
+}
+.light-mode .links {
+  background-color: #fff !important;
 }
