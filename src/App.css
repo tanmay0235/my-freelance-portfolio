@@ -35,6 +35,7 @@ h2 { font-size: 2rem; color: #aaa; margin-bottom: 20px; }
 }
 
 .hero-buttons {
+ 
   margin-top: 20px;     /* Adds extra space above the buttons */
 }
 
@@ -42,11 +43,14 @@ h2 { font-size: 2rem; color: #aaa; margin-bottom: 20px; }
 /* BUTTONS */
 .primary-btn {/* Add these to fix the spacing */
 
-
+ white-space: nowrap; /* Forces text to stay on one line */
+  min-width: fit-content; /* Ensures button is wide enough for the text */
   background: #00bcd4; color: #000; padding: 12px 24px; font-weight: bold;
   border-radius: 5px; margin-right: 15px;
 }
 .secondary-btn {
+  white-space: nowrap; /* Forces text to stay on one line */
+  min-width: fit-content; /* Ensures button is wide enough for the text */
   border: 2px solid #00bcd4; color: #00bcd4; padding: 12px 24px; font-weight: bold;
   border-radius: 5px;
 }
