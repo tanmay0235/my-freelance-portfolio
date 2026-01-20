@@ -26,7 +26,7 @@ const Projects=()=>{
             <h2 className="section-title">Featured Projects</h2>
             <div className="project-grid">
               {projects.map((project,index)=>(
-                <div key={index} className="project-card">
+                <div key={index} className="project-card" data-aos="fade-up">
                     <h3>{project.title}</h3>
                     <p>{project.desc}</p>
                  <div className="tech-stack">

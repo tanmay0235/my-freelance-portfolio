@@ -15,7 +15,7 @@ const Skills=()=>{
     <h2 className="section-title">My Tech Stack</h2>
   <div className="skill-grid">
     {skills.map((skill,index)=>(
-        <div key={index} className="skill-card">
+        <div key={index} className="skill-card" data-aos="flip-left" data-aos-delay={index*100}>
         <span className="skill-icon">{skill.icon}</span>
         <h3>{skill.name}</h3>
         </div>

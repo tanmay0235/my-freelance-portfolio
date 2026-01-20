@@ -485,3 +485,73 @@ body.light-mode {
 .light-mode .links {
   background-color: #fff !important;
 }
+/* --- FORM VALIDATION STYLES --- */
+
+/* The Red Error Text */
+.error-text {
+  color: #ff4d4d;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  display: block;
+  text-align: left;
+}
+
+/* Red Border for the input box */
+.contact-form input.error-input,
+.contact-form textarea.error-input {
+  border: 2px solid #ff4d4d;
+  animation: shake 0.3s ease-in-out; /* Optional: Shake animation */
+}
+
+/* Optional: Shake Animation keyframes */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.form-group {
+  margin-bottom: 15px; /* Space between inputs */
+}
+/* --- SUCCESS MESSAGE STYLES --- */
+.success-message {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: rgba(0, 255, 0, 0.1); /* Very light green background */
+  color: #00e676; /* Bright Green Text */
+  border: 1px solid #00e676;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  
+  /* Animation to make it appear smoothly */
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Floating Resume Button */
+.resume-btn {
+  position: fixed;
+  bottom: 30px; /* Distance from bottom */
+  right: 30px;  /* Distance from right */
+  background-color: #ff5733; /* A nice "Call to Action" orange */
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px; /* Pill shape */
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  z-index: 1000; /* Ensures it stays ON TOP of everything */
+  transition: transform 0.3s ease;
+}
+
+.resume-btn:hover {
+  transform: scale(1.1); /* Grows slightly when you hover */
+  background-color: #e64a19;
+}

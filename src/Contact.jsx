@@ -1,65 +1,114 @@
-import {useState} from "react";
-import "./App.css"
+import { useState } from "react";
+import "./App.css";
 
-const Contact=()=>{
-    const [result,setResult]=useState("");
-    const onSubmit=async(event)=>{
-        event.preventDefault();
-        setResult("Sending.....");
-    
-    const formData =new FormData(event.target);
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-    formData.append("access_key","c5863641-4887-4168-b275-0aa7e04e76ae")
+  const [errors, setErrors] = useState({});
+  
+  // 1. NEW STATE: Track if message was sent successfully
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-    const response= await fetch("https://api.web3forms.com/submit",{
-        method:"POST",
-        body:formData
-    });
-    const data =await response.json();
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    setErrors({ ...errors, [name]: "" }); // Clear error as they type
+  };
 
-    if(data.success){
-        setResult(<>
-      <strong>Message Sent!</strong> I will reply soon.
-      <br />
-      <span className="tiny-text">To send another, just fill the form again.</span>
-    </>);
-        event.target.reset();
-    } else {
-        console.log('Error',data);
-        setResult(data.message);
+  const validate = () => {
+    let tempErrors = {};
+    if (!formData.name.trim()) tempErrors.name = "Name is required!";
+    if (!formData.email.trim()) {
+      tempErrors.email = "Email is required!";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      tempErrors.email = "Email is invalid!";
     }
-};
-    return(
-        <section id="contact" className="contact-section">
-            <h2 className="section-title">Get In Touch</h2>
-            <p className="contact-desc">
-                I will be helping you in making your Frontend Idea into a Reality.
-                So If You Have Anything In Your Mind ? Let's make it happen.
-            </p>
-            <div className="contact-container">
-                <form onSubmit = {onSubmit}className="contact-form">
-                    <div className="form-group">
-                        <label htmlFor="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your Name " required/>
-                    </div>
+    if (!formData.message.trim()) tempErrors.message = "Message is required!";
+    
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
 
-                    <div className="form-group">
-                       <label htmlFor="email">Email</label>
-                       <input type="email" id="email" name="email" placeholder="Your Email" required />
-                    </div>
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-                    <div className="form-group">
-                       <label htmlFor="message">Message</label>
-                       <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" className="submit-btn">Send Message</button>
-                    <div className="result-message">{result}</div>
-                </form>
+    if (validate()) {
+      // 2. SUCCESS: No alert. Just set state to true.
+      setIsSubmitted(true);
+      console.log("Form Submitted:", formData);
+      
+      // Clear form
+      setFormData({ name: "", email: "", message: "" });
 
-            </div>
+      // Optional: Hide the success message after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
+    } else {
+      setIsSubmitted(false);
+    }
+  };
 
-        </section>
-    );
+  return (
+    // 3. CHECK: Ensure data-aos="zoom-in" is here
+    <section id="contact" className="contact-section" data-aos="zoom-in">
+      <h2>Contact Me</h2>
+      <p>Let's build something amazing together.</p>
+
+      <form className="contact-form" onSubmit={handleSubmit}>
+        
+        <div className="form-group">
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            value={formData.name}
+            onChange={handleChange}
+            className={errors.name ? "error-input" : ""} 
+          />
+          {errors.name && <span className="error-text">{errors.name}</span>}
+        </div>
+
+        <div className="form-group">
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            value={formData.email}
+            onChange={handleChange}
+            className={errors.email ? "error-input" : ""}
+          />
+          {errors.email && <span className="error-text">{errors.email}</span>}
+        </div>
+
+        <div className="form-group">
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            rows="5"
+            value={formData.message}
+            onChange={handleChange}
+            className={errors.message ? "error-input" : ""}
+          ></textarea>
+          {errors.message && <span className="error-text">{errors.message}</span>}
+        </div>
+
+        <button type="submit">Send Message</button>
+
+        {/* 4. THE SUCCESS MESSAGE (Only shows if isSubmitted is true) */}
+        {isSubmitted && (
+          <div className="success-message">
+            ✅ Message sent successfully! I'll get back to you soon.
+          </div>
+        )}
+
+      </form>
+    </section>
+  );
 };
 
 export default Contact;
