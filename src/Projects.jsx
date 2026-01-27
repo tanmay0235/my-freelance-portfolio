@@ -6,13 +6,15 @@ const Projects=()=>{
       title: "Portfolio Website",
       desc: "You are looking at it! A fully responsive personal portfolio built with React, Vite, and modern CSS.",
       tech: ["React", "Vite", "CSS"],
-      link: "#" // You can add your GitHub link here later
+      link: "https://github.com/tanmay0235/my-freelance-portfolio.git",
+      demo: "https://tanmay-portfolio-dev.netlify.app" 
     },
     {
       title: "Task Manager App",
       desc: "A productivity tool that allows users to add, edit, and delete daily tasks. Uses LocalStorage to save data.",
       tech: ["React", "State", "LocalStorage"],
-      link: "#"
+      link: "https://github.com/tanmay0235/smart-task-manager.git",
+      demo: "https://smarttaskmanagertool.netlify.app"
     },{
       title: "Weather Dashboard",
       desc: "A real-time weather tracking application that fetches data from an external API and displays forecasts.",
@@ -34,7 +36,18 @@ const Projects=()=>{
                     <span key={i} className="tech-tag">{tag}</span>
                   ))}  
                 </div>
-                <a href={project.link} className="project-link">View Code</a>   
+                <div className="project-links">
+               
+                   <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link">
+                     View Code
+                    </a>
+                    {project.demo && project.demo !== "" && (
+                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="project-link demo-btn">
+                                    Live Demo
+                          </a>
+                                
+                    )}
+                </div>
                 </div>
               ))}
 
