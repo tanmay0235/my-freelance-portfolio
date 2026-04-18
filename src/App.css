@@ -1,582 +1,284 @@
-/* RESET & BASICS */
-* { box-sizing: border-box; margin: 0; padding: 0;}
-html {
-  scroll-behavior: smooth;
-}
-body { background-color: #111; color: #fff; font-family: sans-serif; }
-a { text-decoration: none; color: inherit; }
+/* RESET */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
 /* NAVBAR */
 .navbar {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 20px 50px; background: #1a1a1a; position: fixed; width: 100%; top: 0;left: 0;z-index:1000;
-  border-bottom: 1px solid #333;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  padding: 20px 50px; 
+  background: var(--bg-color);
+  position: fixed; 
+  width: 100%; 
+  top: 0; 
+  left: 0; 
+  z-index: 1000;
+  border-bottom: 1px solid var(--border);
 }
-.logo { font-size: 1.5rem; font-weight: bold; }
-.dot { color: #ff9800; } /* Cyan accent color */
-.links a { margin-left: 20px; font-size: 1rem; transition: 0.3s; }
-.contact-btn { background: #00bcd4; padding: 8px 16px; border-radius: 5px; color: #000; font-weight: bold; }
 
-/* HERO SECTION */
+/* HERO SECTION - Fixed Overlap */
 .hero-section {
-  display: flex; align-items: center; justify-content: space-between;
-  height: 100vh; padding: 0 10%; margin-top: 60px;padding-top: 100px; /* Space for fixed nav */
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  min-height: 100vh; 
+  padding: 120px 10% 60px 10%; /* Increased top padding to clear the Nav */
 }
+
 .text-content { max-width: 50%; }
-h1 { font-size: 4rem; margin-bottom: 10px; }
-h2 { font-size: 2rem; color: #aaa; margin-bottom: 20px; }
-.highlight { color: #4caf50; }
-.buttons { margin-top: 30px; }
-.hero-description {
-  margin-bottom: 40px;  /* Pushes the buttons down */
-  font-size: 1.2rem;    /* Makes the text slightly easier to read */
-  color: #ccc;          /* Matches your theme */
-  display: block;       /* Ensures it sits on its own line */
-}
+h1 { font-size: 4rem; margin-bottom: 10px; color: var(--text-main); }
+h2 { font-size: 2rem; color: var(--text-muted); margin-bottom: 20px; }
 
-.hero-buttons {
- 
-  margin-top: 20px;     /* Adds extra space above the buttons */
-}
-
-
-/* BUTTONS */
-.primary-btn {/* Add these to fix the spacing */
-
- white-space: nowrap; /* Forces text to stay on one line */
-  min-width: fit-content; /* Ensures button is wide enough for the text */
-  background: #00bcd4; color: #000; padding: 12px 24px; font-weight: bold;
-  border-radius: 5px; margin-right: 15px;
-}
-.secondary-btn {
-  white-space: nowrap; /* Forces text to stay on one line */
-  min-width: fit-content; /* Ensures button is wide enough for the text */
-  border: 2px solid #00bcd4; color: #00bcd4; padding: 12px 24px; font-weight: bold;
-  border-radius: 5px;
-}
-
-/* IMAGE */
-.profile-img {
-  width: 350px; height: 350px; object-fit: cover; border-radius: 50%;
-  border: 5px solid #222; box-shadow: 0 0 20px rgba(0, 188, 212, 0.4);
-}
-/* --- SKILLS SECTION --- */
-.skills-section {
+/* SKILLS & PROJECTS */
+.skills-section, .projects-section, .contact-section {
   padding: 80px 10%;
-  background-color: #111; /* Keep it dark */
   text-align: center;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  margin-bottom: 50px;
-  color: #fff;
-  border-bottom: 3px solid #00bcd4;
-  display: inline-block;
-  padding-bottom: 10px;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 30px;
-}
-
-.skill-card {
-  background: #1a1a1a;
+.skill-card, .project-card, .contact-form {
+  background: var(--bg-card);
   padding: 30px;
   border-radius: 15px;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  border: 1px solid #333;
-}
-
-/* Hover Effect: The card pops up */
-.skill-card:hover {
-  transform: translateY(-10px);
-  border-color: #00bcd4;
-  box-shadow: 0 10px 20px rgba(0, 188, 212, 0.2);
-}
-
-.skill-icon {
-  font-size: 3rem;
-  display: block;
-  margin-bottom: 15px;
-}
-/* --- PROJECTS SECTION --- */
-.projects-section {
-  padding: 80px 10%;
-  background-color: #0f0f0f; /* Slightly darker than skills */
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive Grid */
-  gap: 40px;
-}
-
-.project-card {
-  background: #1a1a1a;
-  padding: 30px;
-  border-radius: 10px;
-  border-left: 5px solid #00bcd4; /* Accent line on the left */
+  border: 1px solid var(--border);
+  color: var(--text-main);
   transition: transform 0.3s;
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
-  background: #222;
+.project-card p, .contact-desc {
+  color: var(--text-muted);
 }
 
-.project-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.project-card p {
-  color: #ccc;
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-
-.tech-stack {
-  margin-bottom: 20px;
-}
-
-.tech-tag {
-  background: #333;
-  color: #00bcd4;
-  padding: 5px 10px;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  margin-right: 10px;
-  display: inline-block;
-}
-.project-links {
-  display: flex;
-  gap: 15px; /* Space between buttons */
-  margin-top: 15px;
-}
-.project-link {
- text-decoration: none;
-  font-weight: bold;
-  font-size: 0.9rem;
-  color: #6366f1; /* Your primary color */
-  border: 1px solid #6366f1;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
- 
-}
-.project-link:hover {
-  background-color: #ebf4ff;
-  color: #00bcd4;
-}
-/* Specific style for the "Live Demo" button to make it pop */
-.demo-btn {
-  background-color: #6366f1;
-  color: white;
-}
-
-.demo-btn:hover {
-  background-color: #4f46e5;
-  color: white;
-  transform: translateY(-2px); /* Slight lift effect */
-}
-/* --- CONTACT SECTION --- */
-.contact-section {
-  padding: 80px 10%;
-  background-color: #111;
-  text-align: center;
-  padding-bottom: 150px; /* Extra space at bottom */
-}
-
-.contact-desc {
-  color: #aaa;
-  margin-bottom: 40px;
-  font-size: 1.1rem;
-}
-
-.contact-container {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: left; /* Align form text to left */
-}
-
-.contact-form {
-  background: #1a1a1a;
-  padding: 40px;
-  border-radius: 15px;
-  border: 1px solid #333;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  color: #ccc;
-  font-size: 0.9rem;
-}
-
+/* FORM INPUTS */
 .form-group input, 
 .form-group textarea {
   width: 100%;
   padding: 12px;
-  background: #222;
-  border: 1px solid #444;
-  color: #fff;
+  background: var(--bg-color);
+  border: 1px solid var(--border);
+  color: var(--text-main);
   border-radius: 5px;
-  font-size: 1rem;
-  font-family: inherit;
 }
 
-.form-group input:focus, 
-.form-group textarea:focus {
-  outline: none;
-  border-color: #00bcd4; /* Or your new Orange color! */
-}
-
-.submit-btn {
-  width: 100%;
-  padding: 15px;
-  background: #00bcd4; /* Match your accent */
+/* BUTTONS */
+.primary-btn, .submit-btn {
+  background: var(--accent);
   color: #000;
+  padding: 12px 24px;
   border: none;
   font-weight: bold;
-  font-size: 1rem;
   border-radius: 5px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.submit-btn:hover {
-  background: #fff;
-}
-.result-message {
-  margin-top: 20px;
-  color: #00bcd4; /* Or your Green/Orange accent */
+/* RESUME BUTTON */
+.resume-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #ff5733;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
   font-weight: bold;
-  text-align: center;
+  z-index: 1000;
 }
-.tiny-text {
-  font-size: 0.8rem;
-  color: #32b71e;
-  font-weight: normal;
-}
-/* --- ANIMATIONS --- */
-
-/* 1. Define the movement */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;               /* Start invisible */
-    transform: translateY(30px); /* Start 30px lower than normal */
-  }
-  to {
-    opacity: 1;               /* End fully visible */
-    transform: translateY(0); /* End in the correct spot */
-  }
+/* --- FIX 1: LINK RESET --- */
+a { 
+  text-decoration: none; 
+  color: inherit; 
 }
 
-/* 2. Create the class to apply it */
-.animate-text {
-  opacity: 0; /* Keep it hidden until the animation starts */
-  animation: fadeInUp 1s ease-out forwards; /* Run the animation for 1 second */
+/* --- FIX 2: NAVBAR SPACING & BUTTONS --- */
+.links {
+  display: flex;
+  align-items: center;
 }
 
-/* 3. Add a delay for the second line so they don't appear at the exact same time */
-.delay-200 {
-  animation-delay: 0.2s; /* Wait 0.2 seconds before starting */
+.links a { 
+  margin-left: 20px; 
+  font-size: 1rem; 
+  transition: 0.3s; 
 }
 
-.delay-400 {
-  animation-delay: 0.4s; /* Wait 0.4 seconds */
+.contact-btn { 
+  background: var(--accent); 
+  padding: 8px 16px; 
+  border-radius: 5px; 
+  color: #000; 
+  font-weight: bold; 
 }
-/* --- THEME TOGGLE BUTTON --- */
+
 .theme-btn {
   background: none;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
   margin-left: 20px;
-  transition: transform 0.3s;
-}
-.theme-btn:hover {
-  transform: scale(1.2);
 }
 
-/* --- LIGHT MODE OVERRIDES --- */
-.light-mode {
-  background-color: #f4f4f4;
-  color: #333;
+/* --- FIX 3: PROFILE IMAGE --- */
+.profile-img {
+  width: 350px; 
+  height: 350px; 
+  object-fit: cover; 
+  border-radius: 50%;
+  border: 5px solid var(--bg-card); 
+  box-shadow: 0 0 20px rgba(0, 188, 212, 0.4);
 }
 
-/* Fix the Cards */
-.light-mode .navbar,
-.light-mode .skill-card,
-.light-mode .project-card,
-.light-mode .contact-form {
-  background-color: #fff;
-  color: #333;
-  border: 1px solid #ddd;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-/* Fix the Section Titles (Headings) */
-.light-mode .section-title,
-.light-mode h1, 
-.light-mode h2,
-.light-mode h3 {
-  color: #222 !important; /* Force them to be dark */
-}
-
-/* Fix the Form Inputs & Labels */
-.light-mode label {
-  color: #333; /* Dark text for labels */
-  font-weight: bold;
-}
-
-.light-mode input,
-.light-mode textarea {
-  background-color: #f9f9f9; /* Light grey background */
-  color: #000;               /* Black text inside boxes */
-  border: 1px solid #ccc;
-}
-
-/* Fix Description Text */
-.light-mode .contact-desc,
-.light-mode p {
-  color: #555;
-}
-
-.light-mode input,
-.light-mode textarea {
-  background-color: #f9f9f9; /* Light grey background */
-  color: #000;               /* Black text inside boxes */
-  border: 1px solid #ccc;
-}
-
-/* Fix Description Text */
-.light-mode .contact-desc,
-.light-mode p {
-  color: #ebe6e6;
-}
-
-
-/* 1. Force the Main Background (Body) */
-body.light-mode {
-  background-color: #ffffff !important;
-  color: #111111 !important;
-}
-
-/* 2. Force the SECTIONS (The big containers) to be Light Grey */
-.light-mode .skills-section,
-.light-mode .projects-section,
-.light-mode .contact-section {
-  background-color: #f4f4f4 !important; /* Light Grey */
-  color: #111 !important;
-}
-
-/* 3. Force the CARDS to be Pure White with Dark Text */
-.light-mode .skill-card,
-.light-mode .project-card,
-.light-mode .contact-form,
-.light-mode .navbar {
-  background-color: #ffffff !important; /* Pure White */
-  color: #111 !important;               /* Pitch Black Text */
-  border-color: #ddd !important;        /* Light Grey Border */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important; /* Soft Shadow */
-}
-
-/* 4. Fix the Headings and Titles */
-.light-mode h1,
-.light-mode h2,
-.light-mode h3,
-.light-mode .section-title {
-  color: #000 !important;
-}
-
-/* 5. Fix the Form Inputs */
-.light-mode input,
-.light-mode textarea {
-  background-color: #eee !important;
-  color: #000 !important;
-  border: 1px solid #ccc !important;
-}
-
-/* 6. Fix the Description Text */
-.light-mode p,
-.light-mode .contact-desc,
-.light-mode label {
-  color: #444 !important;
-}
-/* --- FOOTER --- */
-.footer {
-  background-color: #000;
-  color: #888;
-  text-align: center;
-  padding: 40px 20px;
-  border-top: 1px solid #333;
-}
-
-.footer p {
-  margin-bottom: 15px;
-  font-size: 0.9rem;
-}
-
-.social-links a {
-  margin: 0 15px;
-  color: #ccc;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-.social-links a:hover {
-  color: #00bcd4; /* Your accent color */
-}
-
-/* Light Mode support for Footer */
-.light-mode .footer {
-  background-color: #e0e0e0 !important;
-  color: #444 !important;
-  border-top: 1px solid #ccc !important;
-}
-.light-mode .social-links a {
-  color: #333 !important;
-}
-/* --- MOBILE NAVIGATION --- */
-
-/* 1. Default: Hide the Hamburger on Desktop */
+/* --- FIX 4: MOBILE RESPONSIVENESS (HAMBURGER MENU) --- */
 .menu-icon {
-  display: none;
+  display: none; /* Hidden on desktop */
   font-size: 1.8rem;
   cursor: pointer;
-  color: #fff;
+  color: var(--text-main);
 }
 
-/* 2. MEDIA QUERY: Rules that ONLY apply to screens smaller than 768px (Tablets/Phones) */
-/* --- MOBILE NAVIGATION (FIXED) --- */
 @media (max-width: 768px) {
-  
-  /* 1. Show the Hamburger */
   .menu-icon {
-    display: block; 
+    display: block; /* Visible on mobile */
   }
 
-  /* 2. Hide the links completely by default */
   .links {
-    display: none; /* Force it to disappear */
-    
-    /* Layout when it DOES appear */
+    display: none;
     position: absolute;
-    top: 60px; /* Push it exactly below the navbar */
+    top: 70px;
     left: 0;
     width: 100%;
-    background-color: #1a1a1a;
+    background-color: var(--bg-card);
     flex-direction: column;
-    align-items: center;
     padding: 30px 0;
-    border-bottom: 2px solid #00bcd4;
-    z-index: 9999;
+    border-bottom: 2px solid var(--accent);
   }
 
-  /* 3. The "Open" State */
-  /* This rule is VERY specific: "If .links has the class .active, perform this" */
   .links.active {
-    display: flex !important; /* Force it to reappear */
+    display: flex;
   }
 
   .links a {
-    color: #ffffff !important; /* Changed from RED to WHITE */
-  font-size: 1.5rem;
-  margin: 15px 0;
-  display: block;
-  }
-}
-
-  /* Adjust theme button position in mobile menu */
-  .theme-btn {
     margin: 15px 0;
-    margin-left: 0;
+    font-size: 1.5rem;
   }
 
+  .theme-btn {
+    margin-left: 0;
+    margin-top: 15px;
+  }
+}
+/* --- FIX: SPACING & SQUISHED ELEMENTS --- */
 
-/* Light Mode Fix for Mobile Menu */
-.light-mode .menu-icon {
-  color: #333 !important;
+/* 1. Hero Buttons */
+.hero-buttons {
+  display: flex;
+  gap: 20px; /* Creates perfect space between the buttons */
+  margin-top: 30px;
 }
-.light-mode .links {
-  background-color: #fff !important;
-}
-/* --- FORM VALIDATION STYLES --- */
-
-/* The Red Error Text */
-.error-text {
-  color: #ff4d4d;
-  font-size: 0.9rem;
-  margin-top: 5px;
-  display: block;
-  text-align: left;
-}
-
-/* Red Border for the input box */
-.contact-form input.error-input,
-.contact-form textarea.error-input {
-  border: 2px solid #ff4d4d;
-  animation: shake 0.3s ease-in-out; /* Optional: Shake animation */
-}
-
-/* Optional: Shake Animation keyframes */
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
-}
-
-.form-group {
-  margin-bottom: 15px; /* Space between inputs */
-}
-/* --- SUCCESS MESSAGE STYLES --- */
-.success-message {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: rgba(0, 255, 0, 0.1); /* Very light green background */
-  color: #00e676; /* Bright Green Text */
-  border: 1px solid #00e676;
+.secondary-btn {
+  border: 2px solid var(--accent); 
+  color: var(--accent); 
+  padding: 12px 24px; 
+  font-weight: bold;
   border-radius: 5px;
-  text-align: center;
-  font-weight: bold;
-  
-  /* Animation to make it appear smoothly */
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Floating Resume Button */
-.resume-btn {
-  position: fixed;
-  bottom: 30px; /* Distance from bottom */
-  right: 30px;  /* Distance from right */
-  background-color: #ff5733; /* A nice "Call to Action" orange */
-  color: white;
-  padding: 12px 24px;
-  border-radius: 50px; /* Pill shape */
   text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  z-index: 1000; /* Ensures it stays ON TOP of everything */
-  transition: transform 0.3s ease;
 }
 
-.resume-btn:hover {
-  transform: scale(1.1); /* Grows slightly when you hover */
-  background-color: #e64a19;
+/* 2. Project Tags & Links */
+.tech-tag {
+  background: var(--border);
+  color: var(--accent);
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  margin-right: 8px; /* Stops the text from mashing together */
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.project-links {
+  display: flex;
+  gap: 15px; /* Spaces out the "View Code" and "Live Demo" links */
+  margin-top: 20px;
+}
+.project-link {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.demo-btn {
+  background: var(--accent);
+  color: #000;
+}
+
+/* 3. Contact Form Button */
+.contact-form button {
+  width: 100%;
+  padding: 15px;
+  background: var(--accent);
+  color: #000;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* 4. Footer Links */
+.social-links a {
+  margin: 0 15px; /* Spaces out GitHub, LinkedIn, Email */
+  display: inline-block;
+}
+
+/* --- FIX 5: BRAND LOGO UPGRADE --- */
+.logo { 
+  font-size: 1.8rem; 
+  font-weight: 800; /* Extra bold for a modern tech look */
+  letter-spacing: -0.5px; /* Tighter letter spacing looks more premium */
+  color: var(--text-main);
+}
+
+.logo .dot { 
+  color: var(--accent); /* Ties the dot perfectly into your Cyan theme */
+  font-size: 2.2rem;
+}
+
+
+/* --- FIX 6: FOOTER LAYOUT --- */
+.footer {
+  background-color: var(--bg-card); /* Blends smoothly with the bottom section */
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Perfect spacing between the paragraph and the links */
+  margin-top: 50px; /* Pushes it down away from the contact form */
+}
+
+.footer p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px; /* Gives the links proper breathing room side-by-side */
+}
+
+.social-links a {
+  color: var(--text-main);
+  font-weight: bold;
+  font-size: 1.05rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--accent); /* Highlights to Cyan on hover */
 }
