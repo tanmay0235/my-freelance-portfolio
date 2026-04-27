@@ -5,9 +5,9 @@ const Projects = () => {
     return(
         <section id="projects" className="projects-section">
             <h2 className="section-title">Featured Projects</h2>
-            <div className="project-grid">
+            <div className="projects-grid">
               {projects.map((project,index)=>(
-                <div key={index} className="project-card" data-aos="fade-up">
+                <div key={index} className="project-card" data-aos="fade-up" data-aos-delay={index*150}>
                     <h3>{project.title}</h3>
                     <p>{project.desc}</p>
                  <div className="tech-stack">

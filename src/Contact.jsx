@@ -56,8 +56,8 @@ const Contact = () => {
   return (
     // 3. CHECK: Ensure data-aos="zoom-in" is here
     <section id="contact" className="contact-section" data-aos="zoom-in">
-      <h2>Contact Me</h2>
-      <p>Let's build something amazing together.</p>
+      <h2 className="section-title">Contact Me</h2>
+      <p className="section-title">Let's build something <span className="highlight">amazing</span> together.</p>
 
       <form className="contact-form" onSubmit={handleSubmit}>
         

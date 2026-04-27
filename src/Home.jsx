@@ -22,7 +22,7 @@ const Hero = () => {
                 </div>
             </div>
             <div className="image-content">
-                <img src={profilePic} alt="Tanmay Singh Profile" className="profile-img" />
+                <img src={profilePic} alt="Tanmay Singh Profile" className="profile-img animate-zoom" />
             </div>
         </section>
     );
